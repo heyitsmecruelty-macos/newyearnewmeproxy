@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GUST Browser</title>
+    <title>CrueltyProxyLOL</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
@@ -140,7 +140,7 @@
                     
                     <div id="gustCredit"
                         style="position:absolute; bottom:20px; right:24px; z-index:10; color:rgba(255,255,255,1); font-size:18px; font-weight:600; font-family:var(--ui); display:flex; align-items:center; gap:5px; pointer-events:none; user-select:none; text-shadow:0 1px 4px rgba(0,0,0,0.6); letter-spacing:0.02em;">
-                        Made with <i class="fas fa-heart" style="color:#ff6b8a; font-size:15px;"></i> by Nautilus Labs
+                        <i class="fas fa-star" style="color:var(--ac); font-size:11px;"></i> A focused space to browse &amp; learn
                     </div>
 
                     <div class="nt-content">
@@ -148,28 +148,10 @@
                             <div class="nt-date" id="ntDate">-</div>
                             <div class="nt-time" id="ntTime" style="display:flex;align-items:center;gap:12px;">--:-- <i id="ntTimeIcon" class="fas fa-moon" style="font-size:0.85em;color:var(--ac);"></i></div>
                         </div>
-                        <div class="nt-brand" style="position:relative;">
-                            <i class="fas fa-wind gust-icon-anim" style="margin-right: -4px;"></i>
-                            <span style="letter-spacing: 3px; display:inline-flex;">
-                                <span class="gust-letter-G">G</span><span class="gust-letter-U">U</span><span class="gust-letter-S">S</span><span class="gust-letter-T">T</span>
-                            </span>
-                            <span class="gust-badge-anim" style="
-                                font-size: 11px;
-                                font-weight: 700;
-                                letter-spacing: 0.05em;
-                                color: var(--ac);
-                                background: rgba(157,229,255,0.10);
-                                border: 1px solid rgba(157,229,255,0.35);
-                                border-radius: 6px;
-                                padding: 2px 7px;
-                                margin-left: 10px;
-                                vertical-align: middle;
-                                line-height: 1.4;
-                                font-family: var(--mono);
-                                position: relative;
-                                top: -16px;
-                                margin-left: -3px;
-                            ">v1.0</span>
+                        <div class="nt-brand">
+                            <i class="fas fa-shield-cat cruelty-mark"></i>
+                            <span class="brand-name">CrueltyProxyLOL</span>
+                            <span class="brand-version">BROWSE / STUDY</span>
                         </div>
                         <div class="nt-search">
                             <div class="nt-search-engine" id="ntEngine">
@@ -184,6 +166,23 @@
                             <button id="ntSearchBtn"><i class="fas fa-arrow-right"></i></button>
                         </div>
                         <div class="nt-favorites" id="ntFavorites"></div>
+                        <section class="study-shelf" aria-label="Study subjects">
+                            <div class="study-shelf-heading">Study hall <span>quick guides</span></div>
+                            <div class="study-shelf-grid">
+                                <a class="study-card" href="../math.html" target="_blank" rel="noopener">
+                                    <span class="study-card-icon"><i class="fas fa-square-root-variable"></i></span>
+                                    <span class="study-card-copy"><span class="study-card-title">Math</span><span class="study-card-detail">Algebra, geometry &amp; more</span></span>
+                                </a>
+                                <a class="study-card" href="../history.html" target="_blank" rel="noopener">
+                                    <span class="study-card-icon"><i class="fas fa-landmark"></i></span>
+                                    <span class="study-card-copy"><span class="study-card-title">History</span><span class="study-card-detail">People, places &amp; timelines</span></span>
+                                </a>
+                                <a class="study-card" href="../science.html" target="_blank" rel="noopener">
+                                    <span class="study-card-icon"><i class="fas fa-atom"></i></span>
+                                    <span class="study-card-copy"><span class="study-card-title">Science</span><span class="study-card-detail">Explore the natural world</span></span>
+                                </a>
+                            </div>
+                        </section>
                     </div>
                 </div>
 

@@ -1,6 +1,6 @@
 <div align="center">
 
-# GUST, by [Nautilus Labs](https://github.com/nautilus-os)
+# CrueltyProxyLOL
 
 ![version](https://img.shields.io/badge/version-2.0-blue?style=flat-square)
 ![license](https://img.shields.io/badge/license-AGPLv3-green?style=flat-square)
@@ -10,6 +10,8 @@
 </div>
 
 ---
+
+CrueltyProxyLOL is a visual rebrand of the existing GUST browser. The browser engine and its behavior remain unchanged; this refresh focuses on the interface, shared styling, and static Math, History, and Science study pages.
 
 ## Links
 

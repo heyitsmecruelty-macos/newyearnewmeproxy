@@ -23,9 +23,9 @@
     </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="description" content="GUST: A service worker -less web browser-in-a-browser" />
-    <title>GUST Browser</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%239de5ff' d='M288 32c0 17.7 14.3 32 32 32h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H352c53 0 96-43 96-96s-43-96-96-96H320c-17.7 0-32 14.3-32 32zm64 352c0 17.7 14.3 32 32 32h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H384c-17.7 0-32 14.3-32 32zM128 512h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H160c17.7 0 32 14.3 32 32s-14.3 32-32 32H128c-17.7 0-32 14.3-32 32s14.3 32 32 32z'/%3E%3C/svg%3E" />
+    <meta name="description" content="CrueltyProxyLOL — a fresh, focused browser experience." />
+    <title>CrueltyProxyLOL</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23d8ff3e' d='M288 32c0 17.7 14.3 32 32 32h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H352c53 0 96-43 96-96s-43-96-96-96H320c-17.7 0-32 14.3-32 32zm64 352c0 17.7 14.3 32 32 32h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H384c-17.7 0-32 14.3-32 32zM128 512h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H160c17.7 0 32 14.3 32 32s-14.3 32-32 32H128c-17.7 0-32 14.3-32 32s14.3 32 32 32z'/%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
@@ -5751,6 +5751,57 @@
         #extStorePage .xs-inst-row .xs-ico img { width: 30px; height: 30px; }
 
     </style>
+    <style>
+        :root {
+            --bg0: #111014; --bg1: #1a171d; --bg2: #211d25; --bg3: #302733;
+            --bg-elevated: #1c1820; --surface: rgba(245,239,248,.07); --surface2: rgba(245,239,248,.13);
+            --bd: #49424d; --bd2: #625768; --tx: #f5f0e8; --tx2: #c8bfce; --tx3: #958b9b;
+            --ac: #d8ff3e; --ac2: #b7e627; --ok: #8de0ad; --warn: #f5ce70; --err: #ff8e9b;
+            --radius-md: 14px; --radius-lg: 24px;
+        }
+        .titlebar, .navbar { background: rgba(17,16,20,.96); border-color: rgba(216,255,62,.14); }
+        .tab.active { background: #211d25; border-color: rgba(216,255,62,.55); box-shadow: inset 0 -2px 0 var(--ac), 0 5px 18px rgba(0,0,0,.2); }
+        .nav-btn:hover:not(:disabled), .tool-btn:hover:not(:disabled), .omni-btn:hover { color: var(--ac); background: rgba(216,255,62,.1); }
+        .omnibox { border-color: rgba(216,255,62,.2); background: #1a171d; box-shadow: inset 0 1px rgba(255,255,255,.035); }
+        .omnibox:focus-within { border-color: var(--ac); box-shadow: 0 0 0 3px rgba(216,255,62,.1); }
+        .newtab { background: #111014; }
+        .nt-bg { opacity: .46; filter: saturate(.72) hue-rotate(15deg); }
+        .nt-overlay { background: radial-gradient(ellipse at 50% 34%, rgba(86,66,94,.52), transparent 48%), linear-gradient(180deg, rgba(17,16,20,.58), rgba(17,16,20,.96)); backdrop-filter: blur(5px); }
+        .nt-content { justify-content: center; gap: 12px; overflow-y: auto; padding: 78px 24px 48px; }
+        .nt-header { padding: 22px 28px; }
+        .nt-date, .nt-time { color: rgba(245,240,232,.78); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+        .nt-brand { color: var(--tx); gap: 10px; font-size: clamp(2.1rem,5vw,4rem); letter-spacing: -.055em; margin: 0; text-shadow: 0 10px 38px rgba(0,0,0,.35); }
+        .nt-brand .cruelty-mark { color: var(--ac); font-size: .56em; margin-right: 4px !important; }
+        .nt-brand .brand-name { font-weight: 700; }
+        .nt-brand .brand-version { align-self: flex-start; margin: 7px 0 0 4px; padding: 5px 8px; border: 1px solid rgba(216,255,62,.27); border-radius: 999px; color: var(--ac); background: rgba(216,255,62,.08); font: 700 9px/1 var(--mono); letter-spacing: .12em; }
+        .nt-search { width: min(680px,100%); margin-top: 16px; }
+        .nt-search input { min-height: 54px; border-radius: 18px; border-color: rgba(245,240,232,.18); background: rgba(26,23,29,.9); box-shadow: 0 16px 42px rgba(0,0,0,.25); }
+        .nt-search input:focus { border-color: rgba(216,255,62,.7); box-shadow: 0 0 0 4px rgba(216,255,62,.1), 0 16px 42px rgba(0,0,0,.25); }
+        .nt-search button { color: #181a10; background: var(--ac); }
+        .nt-search button:hover { color: #181a10; background: #e4ff83; }
+        .nt-search-engine { border-color: rgba(245,240,232,.15); background: rgba(26,23,29,.88); border-radius: 16px; }
+        .nt-favorites { gap: 16px; margin-top: 18px; padding-bottom: 0; }
+        .nt-fav-box { min-height: 76px; width: 76px; border-color: rgba(245,240,232,.12); border-radius: 20px; background: rgba(26,23,29,.72); }
+        .nt-fav-box:hover { border-color: rgba(216,255,62,.55); background: rgba(216,255,62,.1); }
+        .study-shelf { width: min(760px,100%); margin-top: 6px; text-align: left; }
+        .study-shelf-heading { display: flex; align-items: center; gap: 9px; margin: 0 0 10px 3px; color: rgba(245,240,232,.58); font: 700 10px/1.3 var(--mono); letter-spacing: .16em; text-transform: uppercase; }
+        .study-shelf-heading::after { content: ""; height: 1px; flex: 1; background: linear-gradient(90deg, rgba(245,240,232,.2), transparent); }
+        .study-shelf-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; }
+        .study-card { display: flex; align-items: center; gap: 12px; min-height: 66px; padding: 12px 14px; border: 1px solid rgba(245,240,232,.12); border-radius: 16px; background: rgba(26,23,29,.77); color: var(--tx); text-align: left; text-decoration: none; transition: transform .18s ease,border-color .18s ease,background .18s ease; }
+        .study-card:hover { transform: translateY(-2px); border-color: rgba(216,255,62,.55); background: rgba(48,39,51,.92); }
+        .study-card-icon { display: grid; place-items: center; width: 38px; height: 38px; flex: 0 0 38px; border-radius: 12px; background: rgba(216,255,62,.1); color: var(--ac); font-size: 15px; }
+        .study-card-copy { display: grid; gap: 3px; min-width: 0; }
+        .study-card-title { font-size: 13px; font-weight: 700; }
+        .study-card-detail { overflow: hidden; color: var(--tx3); font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+        #gustCredit { color: rgba(245,240,232,.48) !important; font-size: 11px !important; letter-spacing: .1em !important; text-transform: uppercase; }
+        @media (max-width: 700px) {
+            .nt-content { justify-content: flex-start; padding: 84px 18px 34px; }
+            .nt-header { padding: 18px; }
+            .nt-brand { margin-top: 12px; font-size: clamp(1.8rem,8vw,2.6rem); gap: 8px; }
+            .nt-brand .brand-version { display: none; }
+            .study-shelf-grid { grid-template-columns: 1fr; width: min(440px,100%); margin: 0 auto; }
+        }
+    </style>
 </head>
 
 <body>
@@ -5905,7 +5956,7 @@
                 </div>
                 <div class="gust-noscript-title">Woah there!</div>
                 <div class="gust-noscript-body">
-                    GUST needs JavaScript to run. It looks like JavaScript is currently
+                    CrueltyProxyLOL needs JavaScript to run. It looks like JavaScript is currently
                     disabled, possibly because this file is being opened as a
                     <code style="background:#252b33;padding:1px 5px;border-radius:4px;font-size:12px;">file://</code>
                     or
@@ -6017,7 +6068,7 @@
             </button>
             <!-- Removed duplicate findBtn from toolbar -->
 
-            <button class="tool-btn" id="aiBtn" title="Toggle GUST Assistant (Alt+A)">
+            <button class="tool-btn" id="aiBtn" title="Toggle CrueltyProxyLOL Assistant (Alt+A)">
                 <i class="fas fa-wand-magic-sparkles"></i>
             </button>
 
@@ -6079,7 +6130,7 @@
                     
                     <div id="gustCredit"
                         style="position:absolute; bottom:20px; right:24px; z-index:10; color:rgba(255,255,255,1); font-size:18px; font-weight:600; font-family:var(--ui); display:flex; align-items:center; gap:5px; pointer-events:none; user-select:none; text-shadow:0 1px 4px rgba(0,0,0,0.6); letter-spacing:0.02em;">
-                        Made with <i class="fas fa-heart" style="color:#ff6b8a; font-size:15px;"></i> by Nautilus Labs
+                        <i class="fas fa-star" style="color:var(--ac); font-size:11px;"></i> A focused space to browse & learn
                     </div>
 
                     <div class="nt-content">
@@ -6087,28 +6138,10 @@
                             <div class="nt-date" id="ntDate">-</div>
                             <div class="nt-time" id="ntTime" style="display:flex;align-items:center;gap:12px;">--:-- <i id="ntTimeIcon" class="fas fa-moon" style="font-size:0.85em;color:var(--ac);"></i></div>
                         </div>
-                        <div class="nt-brand" style="position:relative;">
-                            <i class="fas fa-wind gust-icon-anim" style="margin-right: -4px;"></i>
-                            <span style="letter-spacing: 3px; display:inline-flex;">
-                                <span class="gust-letter-G">G</span><span class="gust-letter-U">U</span><span class="gust-letter-S">S</span><span class="gust-letter-T">T</span>
-                            </span>
-                            <span class="gust-badge-anim" style="
-                                font-size: 11px;
-                                font-weight: 700;
-                                letter-spacing: 0.05em;
-                                color: var(--ac);
-                                background: rgba(157,229,255,0.10);
-                                border: 1px solid rgba(157,229,255,0.35);
-                                border-radius: 6px;
-                                padding: 2px 7px;
-                                margin-left: 10px;
-                                vertical-align: middle;
-                                line-height: 1.4;
-                                font-family: var(--mono);
-                                position: relative;
-                                top: -16px;
-                                margin-left: -3px;
-                            ">v4.0</span>
+                        <div class="nt-brand">
+                            <i class="fas fa-shield-cat cruelty-mark"></i>
+                            <span class="brand-name">CrueltyProxyLOL</span>
+                            <span class="brand-version">BROWSE / STUDY</span>
                         </div>
                         <div class="nt-search">
                             <div class="nt-search-engine" id="ntEngine">
@@ -6125,6 +6158,23 @@
                             <button id="ntSearchBtn"><i class="fas fa-arrow-right"></i></button>
                         </div>
                         <div class="nt-favorites" id="ntFavorites"></div>
+                        <section class="study-shelf" aria-label="Study subjects">
+                            <div class="study-shelf-heading">Study hall <span>quick guides</span></div>
+                            <div class="study-shelf-grid">
+                                <a class="study-card" href="math.html" target="_blank" rel="noopener">
+                                    <span class="study-card-icon"><i class="fas fa-square-root-variable"></i></span>
+                                    <span class="study-card-copy"><span class="study-card-title">Math</span><span class="study-card-detail">Algebra, geometry &amp; more</span></span>
+                                </a>
+                                <a class="study-card" href="history.html" target="_blank" rel="noopener">
+                                    <span class="study-card-icon"><i class="fas fa-landmark"></i></span>
+                                    <span class="study-card-copy"><span class="study-card-title">History</span><span class="study-card-detail">People, places &amp; timelines</span></span>
+                                </a>
+                                <a class="study-card" href="science.html" target="_blank" rel="noopener">
+                                    <span class="study-card-icon"><i class="fas fa-atom"></i></span>
+                                    <span class="study-card-copy"><span class="study-card-title">Science</span><span class="study-card-detail">Explore the natural world</span></span>
+                                </a>
+                            </div>
+                        </section>
                     </div>
                 </div>
 
