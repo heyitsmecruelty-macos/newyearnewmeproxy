@@ -1,16 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xhtml="http://www.w3.org/1999/xhtml" width="100%" height="100%">
+    <title>CrueltyProxyLOL</title>
     <foreignObject width="100%" height="100%" requiredExtensions="http://www.w3.org/1999/xhtml">
     <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CrueltyProxyLOL</title>
-    <link rel="icon" type="image/svg+xml" href="../brand-mark.svg" />
+    <link rel="icon" type="image/svg+xml" href="./static/gray-planet.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="./static/css.css" />
+    <link rel="stylesheet" href="./static/ui-refresh.css" />
     <script src="https://cdn.jsdelivr.net/npm/iso-639-1@2.1.11/build/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/libcurl.js@latest/libcurl_full.js"></script>
 </head>
@@ -77,7 +79,7 @@
                     <i class="fas fa-lock" id="securityIcon"></i>
                     <span id="securityText"></span>
                 </div>
-                <input type="text" class="url-input" id="url" value="gust://newtab" spellcheck="false"
+                <input type="text" class="url-input" id="url" value="CrueltyProxyLOL://home" spellcheck="false"
                     autocomplete="off" placeholder="Search or enter address" />
                 <span class="omni-drop-hint" id="omniDropHint">
                     <i class="fas fa-arrow-right-to-bracket"></i>drop to navigate
@@ -139,9 +141,9 @@
                     </button>
 
                     
-                    <div id="gustCredit"
+                    <div id="homeSignature"
                         style="position:absolute; bottom:20px; right:24px; z-index:10; color:rgba(255,255,255,1); font-size:18px; font-weight:600; font-family:var(--ui); display:flex; align-items:center; gap:5px; pointer-events:none; user-select:none; text-shadow:0 1px 4px rgba(0,0,0,0.6); letter-spacing:0.02em;">
-                        <i class="fas fa-star" style="color:var(--ac); font-size:11px;"></i> A focused space to browse &amp; learn
+                        <i class="fas fa-star" style="color:var(--ac); font-size:11px;"></i> Your web, your way
                     </div>
 
                     <div class="nt-content">
@@ -152,7 +154,7 @@
                         <div class="nt-brand">
                             <i class="fas fa-shield-cat cruelty-mark"></i>
                             <span class="brand-name">CrueltyProxyLOL</span>
-                            <span class="brand-version">BROWSE / STUDY</span>
+                            <span class="brand-version">YOUR PROXY / YOUR SPACE</span>
                         </div>
                         <div class="nt-search">
                             <div class="nt-search-engine" id="ntEngine">
@@ -168,7 +170,7 @@
                         </div>
                         <div class="nt-favorites" id="ntFavorites"></div>
                         <section class="study-shelf" aria-label="Study subjects">
-                            <div class="study-shelf-heading">Study hall <span>quick guides</span></div>
+                            <div class="study-shelf-heading">Your study deck <span>pick a subject</span></div>
                             <div class="study-shelf-grid">
                                 <a class="study-card" href="../math.html" target="_blank" rel="noopener">
                                     <span class="study-card-icon"><i class="fas fa-square-root-variable"></i></span>
@@ -450,14 +452,18 @@
                         style="background: linear-gradient(180deg, rgba(20,23,27,0.85), rgba(13,15,18,0.95));">
                     </div>
                     
-                    <div style="position:relative; height:100%; display:flex; flex-direction:row;">
+                    <div class="settings-shell" style="position:relative; height:100%; display:flex; flex-direction:row;">
 
                         
-                        <div
+                        <div class="settings-sidebar"
                             style="width:200px; min-width:200px; height:100%; background:rgba(13,15,18,0.7); border-right:1px solid var(--bd); display:flex; flex-direction:column; padding:24px 0; backdrop-filter:blur(8px);">
 
+                            <div class="settings-rail-brand">
+                                <span class="settings-rail-mark"><i class="fas fa-shield-cat"></i></span>
+                                <span><strong>CrueltyProxyLOL</strong><small>CONTROL ROOM</small></span>
+                            </div>
                             
-                            <nav style="display:flex; flex-direction:column; gap:2px; padding:0 12px; flex:1;">
+                            <nav class="settings-nav" style="display:flex; flex-direction:column; gap:2px; padding:0 12px; flex:1;">
                                 <button class="settings-nav-item active" data-section="connection"><i
                                         class="fas fa-network-wired"></i><span>Connection</span></button>
                                 <button class="settings-nav-item" data-section="search"><i
@@ -487,9 +493,17 @@
                         </div>
 
                         
-                        <div
+                        <div class="settings-content"
                             style="flex:1; overflow-y:auto; padding:40px 48px; display:flex; flex-direction:column; gap:32px;">
 
+                            <div class="settings-intro">
+                                <div>
+                                    <span class="settings-kicker">YOUR SPACE / SETTINGS</span>
+                                    <h2>Make it yours.</h2>
+                                    <p>Shape the parts you use every day. Your proxy connection stays on its existing path.</p>
+                                </div>
+                                <span class="settings-intro-mark"><i class="fas fa-sliders"></i></span>
+                            </div>
 
                             
                             <div class="settings-section" data-section="connection">
@@ -745,6 +759,25 @@
 
                             
                             <div class="settings-section" data-section="appearance" style="display:none;">
+                                <div class="settings-card">
+                                    <div class="settings-card-head"><i class="fas fa-earth-americas"></i> App Tab Appearance</div>
+                                    <div class="settings-card-body">
+                                        <div class="settings-switch-label">Keep your app tab recognizable</div>
+                                        <div class="settings-hint">Choose one of two CrueltyProxyLOL labels. This changes only the app tab; pages you visit keep their titles.</div>
+                                        <div class="settings-tab-identity-options">
+                                            <button type="button" class="settings-tab-identity active" data-tab-identity="default" aria-pressed="true">
+                                                <span class="settings-tab-identity-icon"><img src="./static/gray-planet.svg" alt="" /></span>
+                                                <span><strong>CrueltyProxyLOL</strong><small>Original proxy identity</small></span>
+                                            </button>
+                                            <button type="button" class="settings-tab-identity" data-tab-identity="study" aria-pressed="false">
+                                                <span class="settings-tab-identity-icon"><img src="./static/gray-planet.svg" alt="" /></span>
+                                                <span><strong>CrueltyProxyLOL · Study</strong><small>Clearly labeled study workspace</small></span>
+                                            </button>
+                                        </div>
+                                        <div class="settings-hint" id="settingsTabIdentityStatus" role="status">The app tab uses the neutral gray-planet icon.</div>
+                                    </div>
+                                </div>
+
                                 <div class="settings-card">
                                     <div class="settings-card-head"><i class="fas fa-text-width"></i> Font Size
                                     </div>

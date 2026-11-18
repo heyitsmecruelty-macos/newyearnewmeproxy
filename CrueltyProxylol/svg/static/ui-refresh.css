@@ -1,0 +1,557 @@
+/* Shared visual language for both app entry points. */
+:root {
+    --bg0: #111014;
+    --bg1: #1a171d;
+    --bg2: #211d25;
+    --bg3: #302733;
+    --bg-elevated: #1c1820;
+    --surface: rgba(245, 239, 248, .07);
+    --surface2: rgba(245, 239, 248, .13);
+    --bd: #49424d;
+    --bd2: #625768;
+    --tx: #f5f0e8;
+    --tx2: #c8bfce;
+    --tx3: #958b9b;
+    --ac: #d8ff3e;
+    --ac2: #b7e627;
+    --ok: #8de0ad;
+    --warn: #f5ce70;
+    --err: #ff8e9b;
+    --radius-md: 14px;
+    --radius-lg: 24px;
+}
+
+::selection {
+    background: rgba(216, 255, 62, .25);
+    color: var(--tx);
+}
+
+.titlebar,
+.navbar {
+    background: rgba(17, 16, 20, .97);
+    border-color: rgba(216, 255, 62, .14);
+}
+
+.titlebar {
+    gap: 12px;
+    padding: 10px 16px;
+}
+
+.tab {
+    border-color: rgba(245, 240, 232, .1);
+    border-radius: 13px 13px 8px 8px;
+    background: rgba(33, 29, 37, .82);
+}
+
+.tab.active {
+    border-color: rgba(216, 255, 62, .5);
+    background: #211d25;
+    box-shadow: inset 0 -2px 0 var(--ac), 0 5px 18px rgba(0, 0, 0, .2);
+}
+
+.tab-add {
+    border-color: rgba(245, 240, 232, .22);
+    border-radius: 12px;
+    background: rgba(245, 240, 232, .035);
+}
+
+.navbar {
+    gap: 10px;
+    padding: 9px 16px;
+}
+
+.status-pill {
+    gap: 8px;
+    border-color: rgba(245, 240, 232, .11);
+    border-radius: 999px;
+    background: rgba(33, 29, 37, .82);
+}
+
+.nav-btn,
+.tool-btn,
+.omni-btn,
+.tool-toggle {
+    border-radius: 11px;
+}
+
+.nav-btn:hover:not(:disabled),
+.tool-btn:hover:not(:disabled),
+.omni-btn:hover {
+    color: var(--ac);
+    background: rgba(216, 255, 62, .1);
+}
+
+.omnibox {
+    min-height: 42px;
+    border: 1px solid rgba(216, 255, 62, .2);
+    border-radius: 15px;
+    background: #1a171d;
+    box-shadow: inset 0 1px rgba(255, 255, 255, .035);
+}
+
+.omnibox:focus-within {
+    border-color: var(--ac);
+    box-shadow: 0 0 0 3px rgba(216, 255, 62, .1);
+}
+
+.security-chip,
+.tab-icon {
+    color: var(--ac);
+}
+
+.bookmarks-bar-wrap,
+.bookmarks-bar {
+    border-color: rgba(245, 240, 232, .09);
+    background: rgba(26, 23, 29, .96);
+}
+
+.bookmark,
+.bookmark-add {
+    border-radius: 10px;
+}
+
+.context-menu,
+.tab-context-menu,
+.browser-menu,
+.locale-dropdown-panel {
+    border-color: rgba(245, 240, 232, .14);
+    border-radius: 16px;
+    background: rgba(33, 29, 37, .96);
+    box-shadow: 0 18px 56px rgba(0, 0, 0, .42);
+    backdrop-filter: blur(18px);
+}
+
+.context-menu-item,
+.tab-ctx-item {
+    border-radius: 10px;
+}
+
+.bookmark-modal-content {
+    border-color: rgba(216, 255, 62, .18);
+    border-radius: 22px;
+    background: linear-gradient(145deg, #211d25, #18151b);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, .45);
+}
+
+.bookmark-modal-btn {
+    border-radius: 11px;
+}
+
+.logs,
+.elements {
+    border-color: rgba(245, 240, 232, .12);
+    border-radius: 18px;
+    background: #17141a;
+    box-shadow: 0 16px 42px rgba(0, 0, 0, .28);
+}
+
+.log-head,
+.adblock-header {
+    border-color: rgba(245, 240, 232, .08);
+    background: linear-gradient(120deg, rgba(48, 39, 51, .88), rgba(26, 23, 29, .96));
+}
+
+.log-filter-btn {
+    border-radius: 999px;
+}
+
+.log-search {
+    border-radius: 9px;
+}
+
+.log-entry {
+    padding: 3px 8px;
+    border-radius: 8px;
+}
+
+.site-info-box,
+.adblock-modal {
+    border-color: rgba(245, 240, 232, .14);
+    border-radius: 18px;
+    background: rgba(33, 29, 37, .97);
+    box-shadow: 0 18px 56px rgba(0, 0, 0, .42);
+}
+
+.site-info-header,
+.site-info-footer {
+    border-color: rgba(245, 240, 232, .09);
+}
+
+.site-info-icon.neutral {
+    background: rgba(216, 255, 62, .1);
+    color: var(--ac);
+}
+
+.adblock-content {
+    background: rgba(26, 23, 29, .96);
+}
+
+#settingsPage .nt-bg {
+    opacity: 0 !important;
+}
+
+#settingsPage .nt-overlay {
+    background:
+        radial-gradient(ellipse at 10% 12%, rgba(86, 66, 94, .36), transparent 38%),
+        radial-gradient(ellipse at 95% 80%, rgba(216, 255, 62, .07), transparent 34%),
+        linear-gradient(145deg, #111014, #17131b 60%, #111014) !important;
+    backdrop-filter: blur(8px);
+}
+
+#settingsPage .settings-shell {
+    display: flex !important;
+    height: 100%;
+    min-height: 0;
+}
+
+#settingsPage .settings-sidebar {
+    width: 236px !important;
+    min-width: 236px !important;
+    padding: 20px 14px !important;
+    border-right: 1px solid rgba(245, 240, 232, .09) !important;
+    background: rgba(20, 17, 23, .82) !important;
+    backdrop-filter: blur(20px);
+}
+
+#settingsPage .settings-rail-brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 3px 8px 20px;
+    margin: 0 0 14px;
+    border-bottom: 1px solid rgba(245, 240, 232, .09);
+}
+
+.settings-rail-mark {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    place-items: center;
+    border: 1px solid rgba(216, 255, 62, .25);
+    border-radius: 13px;
+    background: linear-gradient(145deg, rgba(216, 255, 62, .16), rgba(86, 66, 94, .28));
+    color: var(--ac);
+    font-size: 17px;
+}
+
+.settings-rail-brand strong,
+.settings-rail-brand small {
+    display: block;
+}
+
+.settings-rail-brand strong {
+    color: var(--tx);
+    font-size: 13px;
+    letter-spacing: -.02em;
+}
+
+.settings-rail-brand small {
+    margin-top: 3px;
+    color: var(--tx3);
+    font: 700 9px/1.2 var(--mono);
+    letter-spacing: .14em;
+}
+
+#settingsPage .settings-nav {
+    gap: 5px !important;
+}
+
+#settingsPage .settings-nav-item {
+    position: relative;
+    min-height: 40px;
+    padding: 10px 13px;
+    border: 1px solid transparent;
+    border-radius: 13px;
+    color: var(--tx3);
+    font-size: 12px;
+    font-weight: 600;
+    transition: color .16s ease, background .16s ease, border-color .16s ease, transform .16s ease;
+}
+
+#settingsPage .settings-nav-item i {
+    color: inherit;
+}
+
+#settingsPage .settings-nav-item:hover {
+    border-color: rgba(245, 240, 232, .07);
+    background: rgba(245, 240, 232, .055);
+    color: var(--tx);
+    transform: translateX(2px);
+}
+
+#settingsPage .settings-nav-item.active {
+    border-color: rgba(216, 255, 62, .16);
+    background: linear-gradient(100deg, rgba(216, 255, 62, .13), rgba(86, 66, 94, .13));
+    color: var(--ac);
+    box-shadow: inset 2px 0 var(--ac);
+}
+
+#settingsPage .settings-content {
+    min-width: 0;
+    padding: clamp(22px, 4vw, 48px) clamp(20px, 5vw, 64px) 56px !important;
+    gap: 24px !important;
+    background: transparent;
+}
+
+#settingsPage .settings-intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+    padding: clamp(20px, 3vw, 30px);
+    border: 1px solid rgba(245, 240, 232, .1);
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at 88% 50%, rgba(216, 255, 62, .09), transparent 24%),
+        linear-gradient(125deg, rgba(38, 31, 42, .94), rgba(25, 22, 29, .95));
+    box-shadow: 0 16px 44px rgba(0, 0, 0, .17), inset 0 1px rgba(255, 255, 255, .04);
+}
+
+.settings-kicker {
+    color: var(--ac);
+    font: 700 9px/1.4 var(--mono);
+    letter-spacing: .18em;
+}
+
+#settingsPage .settings-intro h2 {
+    margin: 7px 0 5px;
+    color: var(--tx);
+    font: 700 clamp(24px, 3vw, 34px)/1.08 var(--ui);
+    letter-spacing: -.055em;
+}
+
+#settingsPage .settings-intro p {
+    max-width: 520px;
+    color: var(--tx2);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.settings-intro-mark {
+    display: grid;
+    width: 54px;
+    height: 54px;
+    flex: 0 0 54px;
+    place-items: center;
+    border: 1px solid rgba(216, 255, 62, .24);
+    border-radius: 18px;
+    background: rgba(216, 255, 62, .08);
+    color: var(--ac);
+    font-size: 21px;
+    transform: rotate(4deg);
+}
+
+#settingsPage .settings-section {
+    gap: 16px;
+}
+
+#settingsPage .settings-card {
+    border: 1px solid rgba(245, 240, 232, .1);
+    border-radius: 19px;
+    background: linear-gradient(145deg, rgba(34, 29, 38, .94), rgba(25, 22, 29, .96));
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .12), inset 0 1px rgba(255, 255, 255, .025);
+    transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+
+#settingsPage .settings-card:hover {
+    border-color: rgba(216, 255, 62, .2);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, .2), inset 0 1px rgba(255, 255, 255, .035);
+}
+
+#settingsPage .settings-card-head {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(245, 240, 232, .08);
+    background: rgba(255, 255, 255, .025);
+    color: var(--tx);
+    font-size: 13px;
+    letter-spacing: -.01em;
+}
+
+#settingsPage .settings-card-head i {
+    color: var(--ac);
+}
+
+#settingsPage .settings-card-body {
+    padding: 20px;
+}
+
+#settingsPage .settings-input,
+#settingsPage .settings-engine-btn,
+#settingsPage .settings-btn-icon,
+#settingsPage .locale-dropdown-trigger {
+    border-radius: 11px;
+}
+
+#settingsPage .settings-input,
+#settingsPage .settings-engine-btn {
+    border-color: rgba(245, 240, 232, .12);
+    background: rgba(14, 12, 17, .42);
+}
+
+#settingsPage .settings-input:focus {
+    border-color: rgba(216, 255, 62, .62);
+    box-shadow: 0 0 0 3px rgba(216, 255, 62, .09);
+}
+
+#settingsPage .settings-switch.on .settings-switch-track {
+    border-color: rgba(216, 255, 62, .48);
+    background: rgba(216, 255, 62, .18);
+}
+
+#settingsPage .settings-switch.on .settings-switch-thumb {
+    background: var(--ac);
+}
+
+#settingsPage .settings-tab-identity-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+}
+
+#settingsPage .settings-tab-identity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    padding: 13px;
+    border: 1px solid rgba(245, 240, 232, .11);
+    border-radius: 15px;
+    background: rgba(14, 12, 17, .32);
+    color: var(--tx2);
+    cursor: pointer;
+    text-align: left;
+    transition: background .16s ease, border-color .16s ease, transform .16s ease;
+}
+
+#settingsPage .settings-tab-identity:hover {
+    transform: translateY(-2px);
+    border-color: rgba(216, 255, 62, .35);
+}
+
+#settingsPage .settings-tab-identity.active {
+    border-color: rgba(216, 255, 62, .58);
+    background: rgba(216, 255, 62, .08);
+    color: var(--tx);
+    box-shadow: inset 0 0 0 1px rgba(216, 255, 62, .08);
+}
+
+.settings-tab-identity-icon {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    place-items: center;
+    border: 1px solid rgba(245, 240, 232, .1);
+    border-radius: 12px;
+    background: rgba(245, 240, 232, .06);
+}
+
+.settings-tab-identity-icon img {
+    width: 25px;
+    height: 25px;
+}
+
+.settings-tab-identity strong,
+.settings-tab-identity small {
+    display: block;
+}
+
+.settings-tab-identity strong {
+    overflow: hidden;
+    color: inherit;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.settings-tab-identity small {
+    margin-top: 4px;
+    color: var(--tx3);
+    font-size: 10px;
+}
+
+#settingsTabIdentityStatus {
+    margin-top: 10px;
+}
+
+@media (max-width: 760px) {
+    #settingsPage .settings-shell {
+        flex-direction: column !important;
+    }
+
+    #settingsPage .settings-sidebar {
+        width: 100% !important;
+        min-width: 0 !important;
+        height: auto !important;
+        min-height: 0;
+        padding: 12px !important;
+        border-right: 0 !important;
+        border-bottom: 1px solid rgba(245, 240, 232, .09) !important;
+    }
+
+    #settingsPage .settings-rail-brand {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+
+    #settingsPage .settings-nav {
+        flex: 0 0 auto !important;
+        flex-direction: row !important;
+        overflow-x: auto;
+        scrollbar-width: thin;
+    }
+
+    #settingsPage .settings-nav > div {
+        flex: 0 0 auto !important;
+        flex-direction: row !important;
+        overflow: visible !important;
+    }
+
+    #settingsPage .settings-nav hr {
+        display: none;
+    }
+
+    #settingsPage .settings-nav-item {
+        width: auto !important;
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+
+    #settingsPage .settings-content {
+        padding: 18px 16px 36px !important;
+        gap: 16px !important;
+    }
+}
+
+@media (max-width: 560px) {
+    #settingsPage .settings-intro {
+        align-items: flex-start;
+        border-radius: 19px;
+    }
+
+    .settings-intro-mark {
+        width: 42px;
+        height: 42px;
+        flex-basis: 42px;
+        border-radius: 14px;
+        font-size: 17px;
+    }
+
+    #settingsPage .settings-tab-identity-options {
+        grid-template-columns: 1fr;
+    }
+
+    #settingsPage .settings-card-body {
+        padding: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #settingsPage .settings-nav-item,
+    #settingsPage .settings-card,
+    #settingsPage .settings-tab-identity {
+        transition: none;
+    }
+}
