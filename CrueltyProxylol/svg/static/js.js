@@ -8818,6 +8818,65 @@ parent.postMessage({ t: 'ready' }, '*');
       };
     }
 
+    const tabIdentityButtons = Array.from(
+      document.querySelectorAll("[data-tab-identity]"),
+    );
+    if (tabIdentityButtons.length) {
+      const identityKey = "crueltyproxy:tab-identity:v1";
+      const identityStatus = $("settingsTabIdentityStatus");
+      const applyTabIdentity = (mode, persist) => {
+        const selected = mode === "study" ? "study" : "default";
+        const title =
+          selected === "study"
+            ? "CrueltyProxyLOL · Study"
+            : "CrueltyProxyLOL";
+        document.title = title;
+        Array.from(document.getElementsByTagName("title")).forEach(
+          (titleElement) => {
+            titleElement.textContent = title;
+          },
+        );
+        tabIdentityButtons.forEach((button) => {
+          const active = button.dataset.tabIdentity === selected;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+
+        if (persist) {
+          try {
+            ls.setItem(identityKey, selected);
+            if (identityStatus) {
+              identityStatus.textContent =
+                "Saved. The app tab stays CrueltyProxyLOL-branded.";
+              identityStatus.classList.remove("err");
+            }
+          } catch (e) {
+            if (identityStatus) {
+              identityStatus.textContent =
+                "Could not save the app tab preference.";
+              identityStatus.classList.add("err");
+            }
+            log("Could not save app tab preference", "err");
+          }
+        }
+      };
+
+      let savedIdentity = "default";
+      try {
+        savedIdentity = ls.getItem(identityKey) === "study" ? "study" : "default";
+      } catch (e) {
+        if (identityStatus) {
+          identityStatus.textContent = "Could not load the saved tab preference.";
+          identityStatus.classList.add("err");
+        }
+      }
+      applyTabIdentity(savedIdentity, false);
+      tabIdentityButtons.forEach((button) => {
+        button.onclick = () =>
+          applyTabIdentity(button.dataset.tabIdentity, true);
+      });
+    }
+
     const saveFiltersBtn = $("settingsSaveFilters");
     if (saveFiltersBtn) {
       saveFiltersBtn.onclick = () => {
