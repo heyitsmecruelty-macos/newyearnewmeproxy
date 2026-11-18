@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CrueltyProxyLOL</title>
+    <link rel="icon" type="image/svg+xml" href="../brand-mark.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
@@ -22,8 +23,8 @@
                 </button>
                 <div class="tab-strip" id="tabStrip">
                     <button class="tab active" id="tabActive" data-tab-id="1">
-                        <span class="tab-icon"><i class="fas fa-earth-americas"></i></span>
-                        <span class="tab-title" id="tabTitle">New Tab</span>
+                        <span class="tab-icon"><i class="fas fa-shield-cat"></i></span>
+                        <span class="tab-title" id="tabTitle">Home</span>
                     </button>
                     <button class="tab-add" id="newTab" title="New tab (Ctrl+T)" style="flex-shrink:0;">
                         <i class="fas fa-plus"></i>
@@ -217,7 +218,7 @@
                     <div class="adblock-header">
                         <div class="adblock-title">
                             <i class="fas fa-shield-halved" style="color: var(--ac);"></i>
-                            <span>Gust Adblock</span>
+                            <span>Proxy Shield</span>
                         </div>
                         <button id="adblockCloseBtn"
                             style="background:none; border:none; color:var(--tx2); cursor:pointer;">
@@ -808,7 +809,7 @@
                                         <div class="settings-switch-row">
                                             <div>
                                                 <div class="settings-switch-label">Start in fullscreen</div>
-                                                <div class="settings-hint">Automatically enter fullscreen on your first click or keypress after opening Gust.</div>
+                                                <div class="settings-hint">Automatically enter fullscreen on your first click or keypress after opening CrueltyProxyLOL.</div>
                                             </div>
                                             <div class="settings-switch on" id="settingsAutoFullscreenSwitch">
                                                 <div class="settings-switch-track">
@@ -1020,7 +1021,7 @@
                                 </div>
 
                                 <div class="settings-card">
-                                    <div class="settings-card-head"><i class="fas fa-image"></i> New Tab Wallpaper
+                                    <div class="settings-card-head"><i class="fas fa-image"></i> Home Wallpaper
                                     </div>
                                     <div class="settings-card-body">
                                         <div
@@ -1129,15 +1130,15 @@
                             </div>
                             <div class="settings-section" data-section="about" style="display:none;">
                                 <div class="settings-card">
-                                    <div class="settings-card-head"><i class="fas fa-info-circle"></i> About Gust
+                                    <div class="settings-card-head"><i class="fas fa-info-circle"></i> About CrueltyProxyLOL
                                     </div>
                                     <div class="settings-card-body">
                                         <div
                                             style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:20px;">
                                             <div
                                                 style="color:var(--ac); font-weight:700; font-size:18px; display:flex; align-items:center; gap:10px;">
-                                                <i class="fas fa-wind" style="font-size:22px;"></i>
-                                                GUST Browser
+                                                <i class="fas fa-shield-cat" style="font-size:22px;"></i>
+                                                CrueltyProxyLOL
                                             </div>
                                             <span
                                                 style="font-size:11px; font-weight:700; letter-spacing:0.05em; color:var(--ac); background:rgba(157,229,255,0.10); border:1px solid rgba(157,229,255,0.35); border-radius:6px; padding:2px 7px; font-family:var(--mono);">v1.0</span>
@@ -1151,11 +1152,11 @@
                                                     <i class="fas fa-globe" style="color:var(--ac);"></i> How it
                                                     works
                                                 </div>
-                                                Gust is a <strong style="color:var(--tx);">static</strong> web proxy
+                                                CrueltyProxyLOL is a <strong style="color:var(--tx);">static</strong> web proxy
                                                     browser that runs entirely inside a single HTML file.
-                                                When you navigate to a URL, Gust fetches the target site's HTML,
+                                                When you navigate to a URL, CrueltyProxyLOL fetches the target site's HTML,
                                                 CSS, scripts, and assets through <em>Wisp</em>, then rewrites
-                                                all resource URLs and injects them into a sandboxed iframe. Gust can be run inside any HTML editor, <code
+                                                all resource URLs and injects them into a sandboxed iframe. CrueltyProxyLOL can be run inside any HTML editor, <code
                                                     style="background:var(--bg3); padding:2px 6px; border-radius:4px; font-size:12px;">iframe</code>, file, or blob. It's ultra lightweight, packed with features, and is near impossible to block for admins.
                                                 
                                             </div>
@@ -1220,7 +1221,7 @@
                                                         <span style="color:var(--tx3);font-size:11px;margin-left:4px;">WebSocket proxy tunnelling</span>
                                                     </div>
                                                     <div>
-                                                        <span style="color:var(--tx);font-weight:600;">Original Gust Framework &amp; JS</span>
+                                                        <span style="color:var(--tx);font-weight:600;">Original proxy framework &amp; JavaScript</span>
                                                         <span style="color:var(--tx3)"> — </span>
                                                         lanefiedler731-gif
                                                     </div>
@@ -1322,7 +1323,7 @@
                                         <div class="settings-switch-row" style="align-items:center;">
                                             <div>
                                                 <div class="settings-switch-label">Max retry attempts (main)</div>
-                                                <div class="settings-hint">How many times Gust retries on the primary WISP server before switching to the fallback.</div>
+                                                <div class="settings-hint">How many times CrueltyProxyLOL retries on the primary WISP server before switching to the fallback.</div>
                                             </div>
                                             <div style="display:flex; align-items:center; gap:8px; flex-shrink:0;">
                                                 <button class="settings-btn-icon" id="mainRetryMinus" title="Decrease"><i class="fas fa-minus"></i></button>
@@ -1333,7 +1334,7 @@
                                         <div class="settings-switch-row" style="align-items:center; margin-top:12px;">
                                             <div>
                                                 <div class="settings-switch-label">Max retry attempts (fallback)</div>
-                                                <div class="settings-hint">How many times Gust will attempt the fallback WISP before giving up and showing an error.</div>
+                                                <div class="settings-hint">How many times CrueltyProxyLOL will attempt the fallback WISP before giving up and showing an error.</div>
                                             </div>
                                             <div style="display:flex; align-items:center; gap:8px; flex-shrink:0;">
                                                 <button class="settings-btn-icon" id="fallbackRetryMinus" title="Decrease"><i class="fas fa-minus"></i></button>
@@ -1411,7 +1412,7 @@
                                         <div class="settings-switch-row">
                                             <div>
                                                 <div class="settings-switch-label">Auto-download unknown files</div>
-                                                <div class="settings-hint">When Gust receives a file it can't display (e.g. .zip, .exe), automatically trigger a browser download instead of showing an error page.</div>
+                                                <div class="settings-hint">When CrueltyProxyLOL receives a file it can't display (e.g. .zip, .exe), automatically trigger a browser download instead of showing an error page.</div>
                                             </div>
                                             <div class="settings-switch" id="mediaDownloadSwitch">
                                                 <div class="settings-switch-track"><div class="settings-switch-thumb"></div></div>

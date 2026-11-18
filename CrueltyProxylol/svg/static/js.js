@@ -321,7 +321,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Error - Gust Browser</title>
+    <title>Error - CrueltyProxyLOL</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
@@ -572,8 +572,8 @@
 <body>
     <div class="error-content">
         <div class="error-brand" onclick="window.parent.postMessage({t:'n', u:'gust://newtab'}, '*')">
-            <i class="fas fa-wind"></i>
-            <span>GUST</span>
+            <i class="fas fa-shield-cat"></i>
+            <span>CrueltyProxyLOL</span>
         </div>
         
         <div class="error-header">
@@ -701,7 +701,7 @@
   let tabs = [
     {
       id: 1,
-      title: "New Tab",
+      title: "Home",
       url: HOME_INTERNAL,
       history: [],
       historyIndex: -1,
@@ -721,7 +721,7 @@
   function createTab(url = HOME_INTERNAL) {
     const tab = {
       id: nextTabId++,
-      title: "New Tab",
+      title: "Home",
       url: url,
       history: url !== HOME_INTERNAL ? [url] : [],
       historyIndex: url !== HOME_INTERNAL ? 0 : -1,
@@ -990,7 +990,7 @@
 
       if (tab.url === HOME_INTERNAL) {
         const icon = document.createElement("i");
-        icon.className = "fas fa-earth-americas";
+        icon.className = "fas fa-shield-cat";
         iconSpan.appendChild(icon);
       } else if (isSettingsPage(tab.url)) {
         const icon = document.createElement("i");
@@ -1028,7 +1028,10 @@
 
       const titleSpan = document.createElement("span");
       titleSpan.className = "tab-title";
-      titleSpan.textContent = tab.title;
+      titleSpan.textContent =
+        tab.url === HOME_INTERNAL && (!tab.title || tab.title === "New Tab")
+          ? "Home"
+          : tab.title || "New Tab";
       tabEl.appendChild(titleSpan);
 
       const muteSpan = document.createElement("span");
@@ -1947,9 +1950,9 @@
   const inFlight = new Map();
 
   function setTabTitle(text) {
-    const title = text || "New Tab";
-    if (tabTitle) tabTitle.textContent = title;
     const tab = getActiveTab();
+    const title = text || (tab && tab.url === HOME_INTERNAL ? "Home" : "New Tab");
+    if (tabTitle) tabTitle.textContent = title;
     if (tab) {
       tab.title = title;
       renderTabs();
@@ -2247,7 +2250,7 @@
       const _ov = $("elemHighlightOverlay");
       if (_ov) _ov.style.display = "none";
     } catch (e) {}
-    setTabTitle("New Tab");
+    setTabTitle("Home");
     isErrorPage = false;
     updateSecurityChip(HOME_INTERNAL);
     updateBookmarkButton();
@@ -2387,7 +2390,7 @@
   function inspectCurrentPage() {
     if (pageUrl === HOME_INTERNAL || isSettingsPage(pageUrl)) {
       elementsTree.innerHTML =
-        '<li style="color: var(--tx3); padding: 8px;">Cannot inspect internal Gust pages</li>';
+        '<li style="color: var(--tx3); padding: 8px;">Cannot inspect internal CrueltyProxyLOL pages</li>';
       return;
     }
 
@@ -4971,14 +4974,14 @@ if (OrigSharedWorker) {
 // WebRTC leak prevention — stub out RTCPeerConnection and getUserMedia
 // so sites can't establish direct connections that bypass the WISP tunnel
 if (WEBRTC_BLOCK) {
-  const _noRTC = function() { throw new DOMException('WebRTC is blocked by Gust', 'NotSupportedError'); };
+  const _noRTC = function() { throw new DOMException('WebRTC is blocked by CrueltyProxyLOL', 'NotSupportedError'); };
   try { window.RTCPeerConnection = _noRTC; } catch(e) {}
   try { window.webkitRTCPeerConnection = _noRTC; } catch(e) {}
   try { window.mozRTCPeerConnection = _noRTC; } catch(e) {}
   try { window.RTCDataChannel = _noRTC; } catch(e) {}
   try {
     if (navigator.mediaDevices) {
-      navigator.mediaDevices.getUserMedia = () => Promise.reject(new DOMException('WebRTC is blocked by Gust', 'NotSupportedError'));
+      navigator.mediaDevices.getUserMedia = () => Promise.reject(new DOMException('WebRTC is blocked by CrueltyProxyLOL', 'NotSupportedError'));
     }
     navigator.getUserMedia = _noRTC;
     navigator.webkitGetUserMedia = _noRTC;
@@ -5800,7 +5803,7 @@ parent.postMessage({ t: 'ready' }, '*');
       " &nbsp;&middot;&nbsp; " +
       size +
       "</div>" +
-      '  <p class="hint">Gust doesn\'t have a built-in viewer for this file type.<br>Enable <strong style="color:#b8c4d0">Auto-download</strong> in Files &amp; Media settings to download it instead.</p>' +
+      '  <p class="hint">CrueltyProxyLOL doesn\'t have a built-in viewer for this file type.<br>Enable <strong style="color:#b8c4d0">Auto-download</strong> in Files &amp; Media settings to download it instead.</p>' +
       '  <div class="btn-row">' +
       '    <button class="btn btn-primary" onclick="go()"><i class="fas fa-arrow-rotate-left"></i> Go Back</button>' +
       '    <button class="btn btn-sec" onclick="openSettings()"><i class="fas fa-sliders"></i> File Settings</button>' +
@@ -6028,7 +6031,7 @@ parent.postMessage({ t: 'ready' }, '*');
           url,
           "Invalid Internal URL",
           "ERR_INVALID_GUST_URL",
-          `The internal address <code>${url}</code> is not a valid Gust page.`,
+          `The internal address <code>${url}</code> is not a valid CrueltyProxyLOL page.`,
           [
             "Check for typos in the address",
             "Use the Home button to return to the search page",
@@ -7157,7 +7160,7 @@ parent.postMessage({ t: 'ready' }, '*');
         errorType = "Connection Interrupted";
         errorCode = "ERR_CONNECTION_ABORTED";
         errorDescription =
-          "The connection to the proxy server was interrupted. GUST will attempt to reconnect automatically on the next request.";
+          "The connection to the proxy server was interrupted. CrueltyProxyLOL will try again on the next request.";
         errorSuggestions = [
           "Click the reload button to try again",
           "The proxy server may have briefly disconnected",
@@ -7464,8 +7467,8 @@ parent.postMessage({ t: 'ready' }, '*');
       url.startsWith("gust://")
     ) {
       iconEl.className = "site-info-icon neutral";
-      iconI.className = "fas fa-wind";
-      title.textContent = "Gust Browser";
+      iconI.className = "fas fa-shield-cat";
+      title.textContent = "CrueltyProxyLOL";
       subtitle.textContent = "Internal page";
       hostEl.textContent = "gust://";
       protoEl.innerHTML = `<span class="ok">Internal</span>`;
@@ -8119,7 +8122,7 @@ parent.postMessage({ t: 'ready' }, '*');
   if (ntGithubBtn)
     ntGithubBtn.onclick = () =>
       window.open(
-        "https://github.com/nautilus-os/GUST",
+        "https://github.com/heyitsmecruelty-macos/newyearnewmeproxy",
         "_blank",
         "noopener,noreferrer",
       );
@@ -8329,7 +8332,7 @@ parent.postMessage({ t: 'ready' }, '*');
           setTabTitle(activeTab.title);
         }
       } else {
-        setTabTitle("New Tab");
+        setTabTitle("Home");
       }
 
       updateClock();
@@ -8408,7 +8411,7 @@ parent.postMessage({ t: 'ready' }, '*');
         );
       } catch (e) {
         const reason = e.message || "Unknown error";
-        console.error("[GUST] libcurl failed to initialize:", reason, e);
+        console.error("[CrueltyProxyLOL] libcurl failed to initialize:", reason, e);
         log("libcurl failed to initialize: " + reason, "err");
         log("Waiting for user to choose how to proceed...", "warn");
         await showOverlayError(reason);
@@ -9319,7 +9322,9 @@ parent.postMessage({ t: 'ready' }, '*');
       }
     }
 
-    if (defaultName === "New Tab") {
+    if (pageUrl === HOME_INTERNAL) {
+      defaultName = "Home";
+    } else if (defaultName === "Home" || defaultName === "New Tab") {
       try {
         defaultName = new URL(pageUrl).hostname.replace(/^www\./, "");
       } catch (e) {
@@ -9927,16 +9932,16 @@ parent.postMessage({ t: 'ready' }, '*');
   const tutSteps = [
     {
       target: null,
-      icon: '<i class="fas fa-wind"></i>',
-      title: "Welcome to GUST",
-      body: "A fast, private browser by Nautilus Labs. This tour covers all the key controls and takes under a minute. Restart anytime from Settings.",
+      icon: '<i class="fas fa-shield-cat"></i>',
+      title: "Welcome to CrueltyProxyLOL",
+      body: "Your focused space to browse and learn. This tour covers the key controls and takes under a minute. Restart anytime from Settings.",
       pos: "center",
     },
     {
       target: "#navPillGroup",
       icon: '<i class="fas fa-arrow-left"></i>',
       title: "Navigation Buttons",
-      body: 'Back (<i class="fas fa-arrow-left" style="font-size:0.8em;"></i>), forward (<i class="fas fa-arrow-right" style="font-size:0.8em;"></i>), reload and home. The home button returns to the new tab page, and you can pause a page reloading by clicking the square in its place.',
+      body: 'Back (<i class="fas fa-arrow-left" style="font-size:0.8em;"></i>), forward (<i class="fas fa-arrow-right" style="font-size:0.8em;"></i>), reload and home. The home button returns to your Home screen, and you can pause a page reloading by clicking the square in its place.',
       pos: "below",
     },
     {
@@ -9965,7 +9970,7 @@ parent.postMessage({ t: 'ready' }, '*');
       target: "#blockToggle",
       icon: '<i class="fas fa-shield-halved"></i>',
       title: "Ad and Tracker Blocking",
-      body: "GUST blocks ads and trackers by default. The badge shows your current status. Click on it to toggle it off if a site is not loading correctly.",
+      body: "CrueltyProxyLOL blocks ads and trackers by default. The badge shows your current status. Click it to toggle protection off if a site is not loading correctly.",
       pos: "below-left",
     },
     {
@@ -9992,7 +9997,7 @@ parent.postMessage({ t: 'ready' }, '*');
     {
       target: "#newTab",
       icon: '<i class="fas fa-plus"></i>',
-      title: "New Tab",
+      title: "Create a tab",
       body: 'Open a new tab with this button or Alt+T. Tabs show favicons and scroll horizontally when you have many open. Use the <i class="fas fa-arrow-left"></i> <i class="fas fa-arrow-right"></i> arrows to scroll them.',
       pos: "below",
     },
@@ -10000,7 +10005,7 @@ parent.postMessage({ t: 'ready' }, '*');
       target: "#settingsBtn",
       icon: '<i class="fas fa-gear"></i>',
       title: "Settings",
-      body: "Configure the WISP server, search engine, wallpaper, font size, cache, shortcuts and more. You can also read about Gust or restart the tutorial from here.",
+      body: "Configure the WISP server, search engine, Home wallpaper, font size, cache, shortcuts and more. You can also read about CrueltyProxyLOL or restart the tutorial from here.",
       pos: "below-left",
     },
     {
@@ -10015,7 +10020,7 @@ parent.postMessage({ t: 'ready' }, '*');
       target: "#ntFavAddBtn",
       icon: '<i class="fas fa-star"></i>',
       title: "Add Favorite",
-      body: "Pin your most-visited sites as favorites on the new tab page for instant access. You can add up to 5.",
+      body: "Pin your most-visited sites as favorites on the Home screen for instant access. You can add up to 5.",
       pos: "below",
       requiresNewTab: true,
       targetFallback: ".nt-fav-add",
@@ -10024,7 +10029,7 @@ parent.postMessage({ t: 'ready' }, '*');
       target: "#ntWallpaperBtn",
       icon: '<i class="fas fa-image"></i>',
       title: "Change Wallpaper",
-      body: "Customize the new tab page background. Upload any image, use a random stock image, paste an image URL, or reset to the default gradient.",
+      body: "Customize your Home screen background. Upload any image, use a random stock image, paste an image URL, or reset to the default gradient.",
       pos: "above",
       requiresNewTab: true,
     },
@@ -10032,7 +10037,7 @@ parent.postMessage({ t: 'ready' }, '*');
       target: "#ntGithubBtn",
       icon: '<i class="fab fa-github"></i>',
       title: "GitHub",
-      body: "GUST is open source. Click to view the repository, report issues, or contribute.",
+      body: "CrueltyProxyLOL is open source. Click to view the repository, report issues, or contribute.",
       pos: "above",
       requiresNewTab: true,
     },
@@ -10040,7 +10045,7 @@ parent.postMessage({ t: 'ready' }, '*');
       target: null,
       icon: '<i class="fas fa-check-circle"></i>',
       title: "You're all set!",
-      body: "That's the full tour. GUST is built for speed and privacy. Restart this tour anytime from Settings then Tutorial.",
+      body: "That's the full tour. CrueltyProxyLOL is built for a focused, flexible browsing experience. Restart this tour anytime from Settings, then Tutorial.",
       pos: "center",
     },
   ];

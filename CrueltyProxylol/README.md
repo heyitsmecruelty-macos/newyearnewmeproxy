@@ -11,7 +11,7 @@
 
 ---
 
-CrueltyProxyLOL is a visual rebrand of the existing GUST browser. The browser engine and its behavior remain unchanged; this refresh focuses on the interface, shared styling, and static Math, History, and Science study pages.
+The whole proxy revamp refreshes the browser interface, shared styling, and static Math, History, and Science study pages while keeping the existing proxy engine and behavior unchanged.
 
 ## Links
 
@@ -187,6 +187,6 @@ Put it inside another HTML file as an `<iframe>`. Works from a Blob URL. Works f
 
 <div align="center">
 
-Made with ❤️ by Nautilus Labs
+CrueltyProxyLOL — the whole proxy revamp
 
 </div>

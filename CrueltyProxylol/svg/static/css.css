@@ -3769,6 +3769,37 @@
             white-space: nowrap;
         }
 
+        @keyframes home-rise {
+            from { opacity: 0; transform: translateY(14px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes mark-float {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-4px) rotate(4deg); }
+        }
+
+        .newtab.active .nt-brand,
+        .newtab.active .nt-search,
+        .newtab.active .nt-favorites,
+        .newtab.active .study-shelf {
+            animation: home-rise .65s cubic-bezier(.2,.8,.2,1) both;
+        }
+
+        .newtab.active .nt-search { animation-delay: .08s; }
+        .newtab.active .nt-favorites { animation-delay: .16s; }
+        .newtab.active .study-shelf { animation-delay: .24s; }
+
+        .newtab.active .study-card {
+            animation: home-rise .55s cubic-bezier(.2,.8,.2,1) both;
+        }
+
+        .newtab.active .study-card:nth-child(2) { animation-delay: .31s; }
+        .newtab.active .study-card:nth-child(3) { animation-delay: .38s; }
+        .nt-brand .cruelty-mark { animation: mark-float 5s ease-in-out infinite; }
+        .app:has(.newtab.active) .tab.active .tab-title { font-size: 0; }
+        .app:has(.newtab.active) .tab.active .tab-title::after { content: "Home"; font: 600 13px/1.5 var(--ui); }
+
         #gustCredit {
             color: rgba(245, 240, 232, .48) !important;
             font-size: 11px !important;
@@ -3800,5 +3831,16 @@
                 grid-template-columns: 1fr;
                 width: min(440px, 100%);
                 margin: 0 auto;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .newtab.active .nt-brand,
+            .newtab.active .nt-search,
+            .newtab.active .nt-favorites,
+            .newtab.active .study-shelf,
+            .newtab.active .study-card,
+            .nt-brand .cruelty-mark {
+                animation: none;
             }
         }
