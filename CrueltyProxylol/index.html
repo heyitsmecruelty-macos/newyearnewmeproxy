@@ -4956,7 +4956,7 @@
         #skinHoverCard .hc-url { font-size: 11.5px; color: #9fb0b8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
         /* ── Chrome NTP (dark, reference-exact) ── */
-        #newtab.skin-ntp .nt-content, #newtab.skin-ntp #gustCredit,
+        #newtab.skin-ntp .nt-content, #newtab.skin-ntp #homeSignature,
         #newtab.skin-ntp .nt-wallpaper-btn, #newtab.skin-ntp #ntGithubBtn { display: none !important; }
         #newtab.skin-ntp .nt-overlay { display: none; }
         #skinNTP { display: none; position: absolute; inset: 0; z-index: 5; overflow: auto; }
@@ -5806,13 +5806,53 @@
         .nt-brand .cruelty-mark { animation: mark-float 5s ease-in-out infinite; }
         .app:has(.newtab.active) .tab.active .tab-title { font-size: 0; }
         .app:has(.newtab.active) .tab.active .tab-title::after { content: "Home"; font: 600 13px/1.5 var(--ui); }
-        #gustCredit { color: rgba(245,240,232,.48) !important; font-size: 11px !important; letter-spacing: .1em !important; text-transform: uppercase; }
+        #homeSignature { color: rgba(245,240,232,.48) !important; font-size: 11px !important; letter-spacing: .1em !important; text-transform: uppercase; }
+        #newtab .nt-overlay { background: radial-gradient(ellipse at 18% 52%, rgba(86,66,94,.48), transparent 40%), radial-gradient(ellipse at 83% 56%, rgba(216,255,62,.1), transparent 34%), linear-gradient(180deg, rgba(17,16,20,.48), rgba(17,16,20,.96)); }
+        #newtab.active .nt-content {
+            display: grid;
+            width: min(1160px, 100%);
+            grid-template-columns: minmax(0, 1.08fr) minmax(320px, .92fr);
+            grid-template-areas: "brand study" "search study" "favorites study";
+            align-content: center;
+            align-items: center;
+            justify-items: stretch;
+            gap: 14px clamp(36px, 6vw, 84px);
+            margin: 0 auto;
+            padding: 88px clamp(20px, 4vw, 48px) 48px;
+            text-align: left;
+        }
+        #newtab.active .nt-brand { grid-area: brand; justify-content: flex-start; flex-wrap: wrap; margin: 0; font-size: clamp(1.9rem, 4vw, 3.8rem); }
+        #newtab.active .nt-search { grid-area: search; width: 100%; margin-top: 0; }
+        #newtab.active .nt-favorites { grid-area: favorites; width: 100%; justify-content: flex-start; margin-top: 8px; align-self: start; }
+        #newtab.active .study-shelf {
+            grid-area: study;
+            width: 100%;
+            margin: 0;
+            padding: 26px;
+            align-self: stretch;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid rgba(216,255,62,.18);
+            border-radius: 28px;
+            background: linear-gradient(145deg, rgba(37,32,42,.86), rgba(24,22,29,.9));
+            box-shadow: 0 24px 70px rgba(0,0,0,.24), inset 0 1px rgba(255,255,255,.04);
+        }
+        #newtab.active .study-shelf-grid { grid-template-columns: 1fr; gap: 12px; }
+        #newtab.active .study-card { min-height: 76px; border-radius: 18px; background: rgba(12,12,16,.36); }
+        @media (max-width: 860px) {
+            #newtab.active .nt-content { display: flex; width: 100%; align-items: center; text-align: center; gap: 16px; padding: 88px 24px 42px; }
+            #newtab.active .nt-brand { justify-content: center; }
+            #newtab.active .nt-favorites { justify-content: center; }
+            #newtab.active .study-shelf { max-width: 760px; padding: 20px; }
+            #newtab.active .study-shelf-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
         @media (max-width: 700px) {
-            .nt-content { justify-content: flex-start; padding: 84px 18px 34px; }
+            #newtab.active .nt-content { justify-content: flex-start; padding: 84px 18px 34px; }
             .nt-header { padding: 18px; }
-            .nt-brand { margin-top: 12px; font-size: clamp(1.8rem,8vw,2.6rem); gap: 8px; }
-            .nt-brand .brand-version { display: none; }
-            .study-shelf-grid { grid-template-columns: 1fr; width: min(440px,100%); margin: 0 auto; }
+            #newtab.active .nt-brand { margin-top: 12px; font-size: clamp(1.8rem,8vw,2.6rem); gap: 8px; }
+            #newtab.active .nt-brand .brand-version { display: none; }
+            #newtab.active .study-shelf-grid { grid-template-columns: 1fr; width: min(440px,100%); margin: 0 auto; }
         }
         @media (prefers-reduced-motion: reduce) {
             .newtab.active .nt-brand, .newtab.active .nt-search, .newtab.active .nt-favorites,
@@ -6049,7 +6089,7 @@
                     <i class="fas fa-lock" id="securityIcon"></i>
                     <span id="securityText"></span>
                 </div>
-                <input type="text" class="url-input" id="url" value="gust://newtab" spellcheck="false"
+                <input type="text" class="url-input" id="url" value="CrueltyProxyLOL://home" spellcheck="false"
                     autocomplete="off" placeholder="Search or enter address">
                 <span class="omni-drop-hint" id="omniDropHint">
                     <i class="fas fa-arrow-right-to-bracket"></i>drop to navigate
@@ -6145,9 +6185,9 @@
                     </button>
 
                     
-                    <div id="gustCredit"
+                    <div id="homeSignature"
                         style="position:absolute; bottom:20px; right:24px; z-index:10; color:rgba(255,255,255,1); font-size:18px; font-weight:600; font-family:var(--ui); display:flex; align-items:center; gap:5px; pointer-events:none; user-select:none; text-shadow:0 1px 4px rgba(0,0,0,0.6); letter-spacing:0.02em;">
-                        <i class="fas fa-star" style="color:var(--ac); font-size:11px;"></i> A focused space to browse & learn
+                        <i class="fas fa-star" style="color:var(--ac); font-size:11px;"></i> Your web, your way
                     </div>
 
                     <div class="nt-content">
@@ -6158,7 +6198,7 @@
                         <div class="nt-brand">
                             <i class="fas fa-shield-cat cruelty-mark"></i>
                             <span class="brand-name">CrueltyProxyLOL</span>
-                            <span class="brand-version">BROWSE / STUDY</span>
+                            <span class="brand-version">YOUR PROXY / YOUR SPACE</span>
                         </div>
                         <div class="nt-search">
                             <div class="nt-search-engine" id="ntEngine">
@@ -6176,7 +6216,7 @@
                         </div>
                         <div class="nt-favorites" id="ntFavorites"></div>
                         <section class="study-shelf" aria-label="Study subjects">
-                            <div class="study-shelf-heading">Study hall <span>quick guides</span></div>
+                            <div class="study-shelf-heading">Your study deck <span>pick a subject</span></div>
                             <div class="study-shelf-grid">
                                 <a class="study-card" href="math.html" target="_blank" rel="noopener">
                                     <span class="study-card-icon"><i class="fas fa-square-root-variable"></i></span>
@@ -11418,6 +11458,8 @@ window._libcurlReady = true;
             let streamCount = 0;
             let idleTimer = null;
             const HOME_INTERNAL = "gust://newtab";
+            const HOME_DISPLAY_URL = "CrueltyProxyLOL://home";
+            function addressBarUrl(url) { return url === HOME_INTERNAL ? HOME_DISPLAY_URL : url; }
 
             const SETTINGS_INTERNAL = "gust://settings";
             const DISCORD_INTERNAL = "gust://discord";
@@ -12053,7 +12095,7 @@ window._libcurlReady = true;
 </head>
 <body>
     <div class="error-content">
-        <div class="error-brand" onclick="window.parent.postMessage({t:'n', u:'gust://newtab'}, '*')">
+        <div class="error-brand" onclick="window.parent.postMessage({t:'n', u:'CrueltyProxyLOL://home'}, '*')">
             <i class="fas fa-shield-cat"></i>
             <span>CrueltyProxyLOL</span>
         </div>
@@ -12457,7 +12499,7 @@ window._libcurlReady = true;
                 hist = [...tab.history];
                 histIdx = tab.historyIndex;
 
-                urlInput.value = tab.url;
+                urlInput.value = addressBarUrl(tab.url);
                 setTabTitle(tab.title);
                 updateNav();
                 document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tabId == tabId));
@@ -13903,7 +13945,7 @@ window._libcurlReady = true;
                 frame.style.display = "none";
                 overlay.classList.add("hidden");
                 if (progressWrap) progressWrap.classList.add("hidden");
-                urlInput.value = HOME_INTERNAL;
+                urlInput.value = addressBarUrl(HOME_INTERNAL);
                 pageUrl = HOME_INTERNAL;
                 currentDoc = null;
                 try { const _ov=$('elemHighlightOverlay'); if(_ov) _ov.style.display='none'; } catch(e) {}
@@ -14811,12 +14853,12 @@ window._libcurlReady = true;
                 el.style.cssText = 'z-index:99995;gap:22px;';
                 el.innerHTML =
                     '<div class="boot-bench-spin"><div class="spinner"></div></div>' +
-                    '<div class="boot-bench-txt" id="bootBenchTxt">Benchmarking relays…</div>';
+                    '<div class="boot-bench-txt" id="bootBenchTxt">Digging in my butt lol</div>';
                 document.body.appendChild(el);
             }
             function setBootBenchmarkProgress(done, total) {
                 const t = document.getElementById('bootBenchTxt');
-                if (t) t.textContent = `Benchmarking relays… ${done}/${total}`;
+                if (t) t.textContent = "Digging in my butt lol";
             }
             function hideBootBenchmark() {
                 if (!_bootSplashEl) return;
@@ -14883,7 +14925,7 @@ window._libcurlReady = true;
                 u = (u || "").trim();
                 if (!u) return "";
                 if (/^gust:\/\/settings(\/.*)?$/i.test(u)) return u.toLowerCase().startsWith("gust://settings/") ? u : SETTINGS_INTERNAL;
-                if (/^gust:\/\/newtab$/i.test(u) || /^about:newtab$/i.test(u)) return HOME_INTERNAL;
+                if (/^CrueltyProxyLOL:\/\/home$/i.test(u) || /^gust:\/\/newtab$/i.test(u) || /^about:newtab$/i.test(u)) return HOME_INTERNAL;
                 if (/^gust:\/\/discord$/i.test(u) || /^about:discord$/i.test(u)) return DISCORD_INTERNAL;
                 // gust://extensions = native fallback store; the REAL Chrome Web Store
                 // loads directly through the proxy (boq works since the dynamic-script
@@ -19000,7 +19042,7 @@ _VIEWER_DL_JS +
                             "Unknown CrueltyProxyLOL Page",
                             "ERR_INVALID_GUST_URL",
                             `<code>${url}</code> is not a valid CrueltyProxyLOL internal page.`,
-                            ["Check for typos in the address", "Valid pages: gust://newtab, gust://settings"]
+                            ["Check for typos in the address", "Use the Home button or Settings menu to open built-in pages"]
                         );
                         setTabTitle("Not Found");
                         isErrorPage = true;
@@ -19061,7 +19103,7 @@ _VIEWER_DL_JS +
                             "Invalid Internal URL",
                             "ERR_INVALID_GUST_URL",
                             `The internal address <code>${url}</code> is not a valid CrueltyProxyLOL page.`,
-                            ["Check for typos in the address", "Use the Home button to return to the search page", "Common pages: gust://newtab, gust://settings"]
+                            ["Check for typos in the address", "Use the Home button to return to the search page", "Open Settings from the gear button"]
                         );
 
                         setTabTitle("Invalid URL");
@@ -20931,7 +20973,7 @@ _VIEWER_DL_JS +
                     iconI.className = "fas fa-shield-cat";
                     title.textContent = "CrueltyProxyLOL";
                     subtitle.textContent = "Internal page";
-                    hostEl.textContent = "gust://";
+                    hostEl.textContent = "CrueltyProxyLOL://";
                     protoEl.innerHTML = `<span class="ok">Internal</span>`;
                     blockEl.innerHTML = `<span style="color:var(--tx3)">N/A</span>`;
                     cookieEl.innerHTML = `<span style="color:var(--tx3)">N/A</span>`;
@@ -21576,7 +21618,7 @@ _VIEWER_DL_JS +
                             pageUrl = activeTab.url;
                             hist = [...activeTab.history];
                             histIdx = activeTab.historyIndex;
-                            urlInput.value = activeTab.url;
+                            urlInput.value = addressBarUrl(activeTab.url);
                             setTabTitle(activeTab.title);
                         }
                     } else {

@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xhtml="http://www.w3.org/1999/xhtml" width="100%" height="100%">
+    <title>CrueltyProxyLOL</title>
     <foreignObject width="100%" height="100%" requiredExtensions="http://www.w3.org/1999/xhtml">
     <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
@@ -77,7 +78,7 @@
                     <i class="fas fa-lock" id="securityIcon"></i>
                     <span id="securityText"></span>
                 </div>
-                <input type="text" class="url-input" id="url" value="gust://newtab" spellcheck="false"
+                <input type="text" class="url-input" id="url" value="CrueltyProxyLOL://home" spellcheck="false"
                     autocomplete="off" placeholder="Search or enter address" />
                 <span class="omni-drop-hint" id="omniDropHint">
                     <i class="fas fa-arrow-right-to-bracket"></i>drop to navigate
@@ -139,9 +140,9 @@
                     </button>
 
                     
-                    <div id="gustCredit"
+                    <div id="homeSignature"
                         style="position:absolute; bottom:20px; right:24px; z-index:10; color:rgba(255,255,255,1); font-size:18px; font-weight:600; font-family:var(--ui); display:flex; align-items:center; gap:5px; pointer-events:none; user-select:none; text-shadow:0 1px 4px rgba(0,0,0,0.6); letter-spacing:0.02em;">
-                        <i class="fas fa-star" style="color:var(--ac); font-size:11px;"></i> A focused space to browse &amp; learn
+                        <i class="fas fa-star" style="color:var(--ac); font-size:11px;"></i> Your web, your way
                     </div>
 
                     <div class="nt-content">
@@ -152,7 +153,7 @@
                         <div class="nt-brand">
                             <i class="fas fa-shield-cat cruelty-mark"></i>
                             <span class="brand-name">CrueltyProxyLOL</span>
-                            <span class="brand-version">BROWSE / STUDY</span>
+                            <span class="brand-version">YOUR PROXY / YOUR SPACE</span>
                         </div>
                         <div class="nt-search">
                             <div class="nt-search-engine" id="ntEngine">
@@ -168,7 +169,7 @@
                         </div>
                         <div class="nt-favorites" id="ntFavorites"></div>
                         <section class="study-shelf" aria-label="Study subjects">
-                            <div class="study-shelf-heading">Study hall <span>quick guides</span></div>
+                            <div class="study-shelf-heading">Your study deck <span>pick a subject</span></div>
                             <div class="study-shelf-grid">
                                 <a class="study-card" href="../math.html" target="_blank" rel="noopener">
                                     <span class="study-card-icon"><i class="fas fa-square-root-variable"></i></span>

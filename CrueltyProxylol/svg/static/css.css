@@ -3800,15 +3800,109 @@
         .app:has(.newtab.active) .tab.active .tab-title { font-size: 0; }
         .app:has(.newtab.active) .tab.active .tab-title::after { content: "Home"; font: 600 13px/1.5 var(--ui); }
 
-        #gustCredit {
+        #homeSignature {
             color: rgba(245, 240, 232, .48) !important;
             font-size: 11px !important;
             letter-spacing: .1em !important;
             text-transform: uppercase;
         }
 
+        #newtab .nt-overlay {
+            background:
+                radial-gradient(ellipse at 18% 52%, rgba(86, 66, 94, .48), transparent 40%),
+                radial-gradient(ellipse at 83% 56%, rgba(216, 255, 62, .1), transparent 34%),
+                linear-gradient(180deg, rgba(17, 16, 20, .48), rgba(17, 16, 20, .96));
+        }
+
+        #newtab.active .nt-content {
+            display: grid;
+            width: min(1160px, 100%);
+            grid-template-columns: minmax(0, 1.08fr) minmax(320px, .92fr);
+            grid-template-areas: "brand study" "search study" "favorites study";
+            align-content: center;
+            align-items: center;
+            justify-items: stretch;
+            gap: 14px clamp(36px, 6vw, 84px);
+            margin: 0 auto;
+            padding: 88px clamp(20px, 4vw, 48px) 48px;
+            text-align: left;
+        }
+
+        #newtab.active .nt-brand {
+            grid-area: brand;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            margin: 0;
+            font-size: clamp(1.9rem, 4vw, 3.8rem);
+        }
+
+        #newtab.active .nt-search {
+            grid-area: search;
+            width: 100%;
+            margin-top: 0;
+        }
+
+        #newtab.active .nt-favorites {
+            grid-area: favorites;
+            width: 100%;
+            justify-content: flex-start;
+            margin-top: 8px;
+            align-self: start;
+        }
+
+        #newtab.active .study-shelf {
+            grid-area: study;
+            width: 100%;
+            margin: 0;
+            padding: 26px;
+            align-self: stretch;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid rgba(216, 255, 62, .18);
+            border-radius: 28px;
+            background: linear-gradient(145deg, rgba(37, 32, 42, .86), rgba(24, 22, 29, .9));
+            box-shadow: 0 24px 70px rgba(0, 0, 0, .24), inset 0 1px rgba(255, 255, 255, .04);
+        }
+
+        #newtab.active .study-shelf-grid {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        #newtab.active .study-card {
+            min-height: 76px;
+            border-radius: 18px;
+            background: rgba(12, 12, 16, .36);
+        }
+
+        @media (max-width: 860px) {
+            #newtab.active .nt-content {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                text-align: center;
+                gap: 16px;
+                padding: 88px 24px 42px;
+            }
+
+            #newtab.active .nt-brand,
+            #newtab.active .nt-favorites {
+                justify-content: center;
+            }
+
+            #newtab.active .study-shelf {
+                max-width: 760px;
+                padding: 20px;
+            }
+
+            #newtab.active .study-shelf-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
         @media (max-width: 700px) {
-            .nt-content {
+            #newtab.active .nt-content {
                 justify-content: flex-start;
                 padding: 84px 18px 34px;
             }
@@ -3817,17 +3911,17 @@
                 padding: 18px;
             }
 
-            .nt-brand {
+            #newtab.active .nt-brand {
                 margin-top: 12px;
                 font-size: clamp(1.8rem, 8vw, 2.6rem);
                 gap: 8px;
             }
 
-            .nt-brand .brand-version {
+            #newtab.active .nt-brand .brand-version {
                 display: none;
             }
 
-            .study-shelf-grid {
+            #newtab.active .study-shelf-grid {
                 grid-template-columns: 1fr;
                 width: min(440px, 100%);
                 margin: 0 auto;

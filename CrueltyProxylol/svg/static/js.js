@@ -272,6 +272,10 @@
   let streamCount = 0;
   let idleTimer = null;
   const HOME_INTERNAL = "gust://newtab";
+  const HOME_DISPLAY_URL = "CrueltyProxyLOL://home";
+  function addressBarUrl(url) {
+    return url === HOME_INTERNAL ? HOME_DISPLAY_URL : url;
+  }
 
   const SETTINGS_INTERNAL = "gust://settings";
 
@@ -571,7 +575,7 @@
 </head>
 <body>
     <div class="error-content">
-        <div class="error-brand" onclick="window.parent.postMessage({t:'n', u:'gust://newtab'}, '*')">
+        <div class="error-brand" onclick="window.parent.postMessage({t:'n', u:'CrueltyProxyLOL://home'}, '*')">
             <i class="fas fa-shield-cat"></i>
             <span>CrueltyProxyLOL</span>
         </div>
@@ -913,7 +917,7 @@
     hist = [...tab.history];
     histIdx = tab.historyIndex;
 
-    urlInput.value = tab.url;
+    urlInput.value = addressBarUrl(tab.url);
     setTabTitle(tab.title);
     updateNav();
     renderTabs();
@@ -2243,7 +2247,7 @@
     frame.style.display = "none";
     overlay.classList.add("hidden");
     if (progressWrap) progressWrap.classList.add("hidden");
-    urlInput.value = HOME_INTERNAL;
+    urlInput.value = addressBarUrl(HOME_INTERNAL);
     pageUrl = "";
     currentDoc = null;
     try {
@@ -3332,7 +3336,7 @@
       return u.toLowerCase().startsWith("gust://settings/")
         ? u
         : SETTINGS_INTERNAL;
-    if (/^gust:\/\/newtab$/i.test(u) || /^about:newtab$/i.test(u))
+    if (/^CrueltyProxyLOL:\/\/home$/i.test(u) || /^gust:\/\/newtab$/i.test(u) || /^about:newtab$/i.test(u))
       return HOME_INTERNAL;
     if (u.startsWith("gust://")) return u;
     try {
@@ -6035,7 +6039,7 @@ parent.postMessage({ t: 'ready' }, '*');
           [
             "Check for typos in the address",
             "Use the Home button to return to the search page",
-            "Common pages: gust://newtab, gust://settings",
+            "Open Settings from the gear button",
           ],
         );
 
@@ -7470,7 +7474,7 @@ parent.postMessage({ t: 'ready' }, '*');
       iconI.className = "fas fa-shield-cat";
       title.textContent = "CrueltyProxyLOL";
       subtitle.textContent = "Internal page";
-      hostEl.textContent = "gust://";
+      hostEl.textContent = "CrueltyProxyLOL://";
       protoEl.innerHTML = `<span class="ok">Internal</span>`;
       blockEl.innerHTML = `<span style="color:var(--tx3)">N/A</span>`;
       cookieEl.innerHTML = `<span style="color:var(--tx3)">N/A</span>`;
@@ -8328,7 +8332,7 @@ parent.postMessage({ t: 'ready' }, '*');
           pageUrl = activeTab.url;
           hist = [...activeTab.history];
           histIdx = activeTab.historyIndex;
-          urlInput.value = activeTab.url;
+          urlInput.value = addressBarUrl(activeTab.url);
           setTabTitle(activeTab.title);
         }
       } else {
