@@ -1,6 +1,6 @@
 <div align="center">
 
-# GUST, by [Nautilus Labs](https://github.com/nautilus-os)
+# CrueltyProxyLOL
 
 ![version](https://img.shields.io/badge/version-2.0-blue?style=flat-square)
 ![license](https://img.shields.io/badge/license-AGPLv3-green?style=flat-square)
@@ -10,6 +10,8 @@
 </div>
 
 ---
+
+The whole proxy revamp refreshes the browser interface, shared styling, and static Math, History, and Science study pages while keeping the existing proxy engine and behavior unchanged.
 
 ## Links
 
@@ -185,6 +187,6 @@ Put it inside another HTML file as an `<iframe>`. Works from a Blob URL. Works f
 
 <div align="center">
 
-Made with ❤️ by Nautilus Labs
+CrueltyProxyLOL — the whole proxy revamp
 
 </div>
